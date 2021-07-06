@@ -1,0 +1,15 @@
+server:
+  port: 3000
+
+db: 
+  type: 'postgres'
+  port: 5432
+  database: 'nest_ecommerce'
+  host: 'localhost'
+  username: 'postgres'
+  password: 'postgres'
+  synchronize: true
+
+jwt: 
+  expiresIn: 3600
+  secret: 'random123456'
