@@ -11,12 +11,12 @@ export class Category {
     @Column()
     name!: string;
 
-    @Column({ type: 'int' })
-    product_id!: number;
+    // @Column({ type: 'int' })
+    // product_id: number;
 
     @OneToMany(() => Product, product => product.category, { eager: false })
-    @JoinColumn({
-        name: 'product_id'
-    })
+    // @JoinColumn({
+    //     name: 'product_id'
+    // })
     products: Product[];
 }

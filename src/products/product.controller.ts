@@ -11,6 +11,7 @@ import { ApiImplicitFile } from "@nestjs/swagger/dist/decorators/api-implicit-fi
 import { productImagesConfig } from "./product-images.config";
 import { ProductImageService } from './product-image.service';
 import { CreateProductImageDTO } from './dto/create-product-image.dto';
+import { AdminGuard } from 'src/auth/guards/roles.guard';
 
 @Controller('products')
 @ApiTags('products')
@@ -19,7 +20,7 @@ export class ProductController {
     constructor(private productService: ProductService, private productImageService: ProductImageService) { }
 
     @Post('')
-    @UseGuards(AuthGuard())
+    @UseGuards(AuthGuard(), AdminGuard)
     @UseInterceptors(FilesInterceptor('images', 20, productImagesConfig))
     @ApiConsumes('multipart/form-data')
     @ApiImplicitFile({ name: 'images', required: true })

@@ -2,7 +2,6 @@ import { BaseEntity, Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany, 
 import * as bcrypt from 'bcryptjs';
 import { ApiProperty } from '@nestjs/swagger';
 
-
 @Entity()
 @Unique(['username'])
 @Index(['id',])
@@ -19,6 +18,9 @@ export class User extends BaseEntity {
 
     @Column()
     salt: string;
+
+    @Column({ type: 'bool', default: false, name: 'is_admin' })
+    isAdmin: boolean;
 
     @ApiProperty({ example: '2021-08-10T05:59:36.708Z' })
     @CreateDateColumn({

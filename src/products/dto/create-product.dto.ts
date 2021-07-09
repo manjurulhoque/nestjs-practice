@@ -10,4 +10,7 @@ export class CreateProductDTO {
 
     @IsString()
     price: string
+
+    @IsNumber()
+    category_id: number
 }

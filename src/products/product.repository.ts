@@ -8,11 +8,12 @@ export class ProductRepository extends Repository<Product> {
     public async createProduct(
         createProductDto: CreateProductDTO,
     ): Promise<Product> {
-        const { name, description, price } = createProductDto;
+        const { name, description, price, category_id } = createProductDto;
         const product = new Product();
         product.name = name;
         product.description = description;
         product.price = Number(price);
+        product.category_id = Number(category_id);
         await product.save();
         return product;
     }
