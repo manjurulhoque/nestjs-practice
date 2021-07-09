@@ -14,7 +14,7 @@ export class Category {
     // @Column({ type: 'int' })
     // product_id: number;
 
-    @OneToMany(() => Product, product => product.category, { eager: false })
+    @OneToMany(() => Product, product => product.category, { eager: true })
     // @JoinColumn({
     //     name: 'product_id'
     // })

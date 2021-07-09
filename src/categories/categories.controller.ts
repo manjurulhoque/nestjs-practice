@@ -14,14 +14,13 @@ export class CategoriesController {
     constructor(private categoriesService: CategoriesService) { }
 
     @Get()
-    findAll() {
-        return this.categoriesService.findAll();
+    public async findAll(): Promise<Category[]> {
+        return await this.categoriesService.findAll();
     }
 
     @Post()
     @UseGuards(AuthGuard(), AdminGuard)
     public async create(@Body(ValidationPipe) createCategoryDto: CreateCategoryDto): Promise<Category> {
-        console.log(createCategoryDto);
         return await this.categoriesService.create(createCategoryDto);
     }
 

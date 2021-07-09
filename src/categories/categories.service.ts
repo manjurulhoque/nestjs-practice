@@ -14,11 +14,11 @@ export class CategoriesService {
     ) { }
 
     public async create(createCategoryDto: CreateCategoryDto): Promise<Category> {
-        return await this.categoryRepository.create(createCategoryDto);
+        return await this.categoryRepository.save(createCategoryDto);
     }
 
-    findAll() {
-        return `This action returns all categories`;
+    public async findAll(): Promise<Category[]> {
+        return await this.categoryRepository.find();
     }
 
     findOne(id: number) {
