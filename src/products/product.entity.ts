@@ -20,7 +20,7 @@ export class Product extends BaseEntity {
     price: number;
 
     @Column({ type: "int" })
-    category_id: number;
+    category_id!: number;
 
     @OneToMany(() => ProductImage, image => image.product, { cascade: true, eager: true })
     images: ProductImage[];

@@ -12,8 +12,8 @@ export class ProductRepository extends Repository<Product> {
         const product = new Product();
         product.name = name;
         product.description = description;
-        product.price = Number(price);
-        product.category_id = Number(category_id);
+        product.price = price;
+        product.category_id = category_id;
         await product.save();
         return product;
     }
@@ -25,7 +25,7 @@ export class ProductRepository extends Repository<Product> {
         const { name, description, price } = createProductDto;
         editedProduct.name = name;
         editedProduct.description = description;
-        editedProduct.price = Number(price);
+        editedProduct.price = price;
         await editedProduct.save();
         return editedProduct;
     }
